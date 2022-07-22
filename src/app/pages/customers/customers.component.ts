@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ConfigService, Config } from 'src/app/config/config.service';
-import { Customer } from 'src/app/models/customer'
+import { Customer } from 'src/app/models/customer';
+
 
 @Component({
   selector: 'app-customers',
@@ -28,7 +29,7 @@ export class CustomersComponent implements OnInit {
       this.configService.getCustomers().subscribe((data:Customer)=>{
         this.posts = data;
       })
-    }, 5000);
+    }, 500);
   }
 
   get posts$():Observable<any>{

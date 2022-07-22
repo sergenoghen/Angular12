@@ -8,17 +8,18 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { CustomerModule } from './modules/customer/customer.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CustomerModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({}, {})
   ],
