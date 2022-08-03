@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomersComponent } from './pages/customers/customers.component';
+import { CustomersComponent } from './pages/customers/customer/customers.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'customers', component: CustomersComponent },
-  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+  {
+    path: 'customers',
+    loadChildren: () =>
+      import('./modules/customer/customer.module').then((m) => m.CustomerModule),
+  },
+  { path: 'customers/all', component: CustomersComponent, },
+  { path: '', component: LandingPageComponent }, 
+  { path: '404', component: PageNotFoundComponent }, 
+  { path: '**', redirectTo: '/404' }, // Wildcard route for a 404 page
 ];
 
 @NgModule({

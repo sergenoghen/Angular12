@@ -1,0 +1,5 @@
+<div class="container">
+  <app-customer-card [customer]="setCustomer( (data$ | async)! )! ">
+  </app-customer-card>
+</div>
+<button mat-button (click)="openDialog()">Open dialog</button>

@@ -33,7 +33,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -101,11 +103,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/scripts.js"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "angular13"
+  "defaultProject": "angular14"
 }

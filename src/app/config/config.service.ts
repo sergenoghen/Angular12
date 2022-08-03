@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/htt
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +23,31 @@ export class ConfigService {
 
   protected configUrl = 'assets/config.json';
 
-  constructor(private http: HttpClient) { }
-    
-  
+  constructor(
+    private http: HttpClient,
+    private router : Router,
+    private route : ActivatedRoute,
+  ) { }
+       
+  getCustomersPerPage(page:any=1) {
+    return this.http.get<any>(environment.apiUrl+"customers?page="+page)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error
+      );
+  }
+
   getCustomers() {
-    return this.http.get<any>(environment.apiUrl+"customers")
+    return this.http.get<any>(environment.apiUrl+"customers?page=1")
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error
+      );
+  }
+
+  getCustomerDetails(id:any=1) {
+    
+    return this.http.get<any>(environment.apiUrl+"customers/details/"+id)
       .pipe(
         retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error

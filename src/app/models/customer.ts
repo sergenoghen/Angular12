@@ -7,3 +7,7 @@ export interface Customer {
     PostalCode: string,
     Country: string,
 }
+
+export interface EmptyCustomer extends Customer{
+    dataState: string,
+}
