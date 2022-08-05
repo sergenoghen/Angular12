@@ -4,7 +4,7 @@ import { Customer } from 'src/app/models/customer';
 
 export const getCustomer = createAction(
   '[Customer/API] Get Customer',
-  props<{ CustomerId: string }>()
+  props<{ id: string }>()
 );
 
 export const getCustomerSuccess = createAction(

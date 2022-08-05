@@ -25,6 +25,7 @@
     "@ngrx/entity": "^14.0.2",
     "@ngrx/router-store": "^14.0.2",
     "@ngrx/store": "^14.0.2",
+    "@ngrx/store-devtools": "^14.0.2",
     "@ngx-translate/core": "^14.0.0",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^8.0.0",

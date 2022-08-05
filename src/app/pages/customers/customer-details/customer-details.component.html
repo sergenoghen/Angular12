@@ -1,5 +1,9 @@
 <div class="container">
-  <app-customer-card [customer]="setCustomer( (data$ | async)! )! ">
+  <app-customer-card [customer]="setCustomer( (customer$ | async)! )! ">
   </app-customer-card>
+</div>
+
+<div class="text-success">
+  suite {{ (customer$ | async)?.CustomerID}}
 </div>
 <button mat-button (click)="openDialog()">Open dialog</button>

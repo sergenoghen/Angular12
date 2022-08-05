@@ -72,14 +72,12 @@ export class CustomersComponent implements OnInit {
     this.customersCurrentPage++;
     if(this.customersCurrentPage > this.lastPage){
       this.customersCurrentPage = this.lastPage;
-      return ;
+      stop() ;//return ;
     }
     this.customersCurrentPage = this.customersCurrentPage > this.lastPage ? this.lastPage : this.customersCurrentPage;
       this.configService.getCustomersPerPage(this.customersCurrentPage).subscribe((result:any)=>{
         this.customers = [...this.customers, ...result.data];
         this.lastPage = result.last_page;
-        
-        // this.customersCurrentPage = result.current_page;
       })
     return this.router.navigateByUrl('customers?page='+this.customersCurrentPage);
   }
@@ -90,7 +88,6 @@ export class CustomersComponent implements OnInit {
     this.customersCurrentPage = this.customersCurrentPage < this.firstPage ? this.firstPage : this.customersCurrentPage;
     this.configService.getCustomersPerPage(this.customersCurrentPage).subscribe((result:any)=>{
       this.customers = result.data;
-      // this.customersCurrentPage = result.current_page;
     })
   return this.router.navigateByUrl('customers?page='+this.customersCurrentPage);
 }
