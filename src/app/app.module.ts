@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerModule } from './modules/customer/customer.module';
@@ -16,6 +16,7 @@ import { CustomerEffects } from './store/effects/customer.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'; 
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -70,11 +71,18 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
+         ServiceWorkerModule.register('ngsw-worker.js', {
+           enabled: environment.production,
+           // Register the ServiceWorker as soon as the application is stable
+           // or after 30 seconds (whichever comes first).
+           registrationStrategy: 'registerWhenStable:30000'
+         }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: LocationStrategy, useClass: PathLocationStrategy}
   ],
   bootstrap: [AppComponent], 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],//to allow non html tags
 })
 export class AppModule { }
