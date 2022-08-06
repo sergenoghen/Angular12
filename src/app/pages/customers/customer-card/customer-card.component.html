@@ -1,9 +1,11 @@
 <mat-card 
     *ngIf="data?.CustomerID! > 0"
     tabindex="0" 
-    class="card" 
+    class="card ui-widget-content" 
     style="width: 18rem;  margin:10px;" 
     [id]="data?.CustomerID" 
+    draggable="true"
+    style="resize:both"
 >
     <!-- <img class="card-img-top" src="favicon.ico" alt="Card image cap"> -->
     <div class="card-body">

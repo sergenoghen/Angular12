@@ -1,4 +1,7 @@
-/** Ce module appel la fonction qui lance la requete de l'API */
+/** Ce module appel la fonction qui lance la requete de l'API 
+ * https://v8.ngrx.io/guide/store
+ * //https://v10.ngrx.io/guide/store/install
+*/
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';

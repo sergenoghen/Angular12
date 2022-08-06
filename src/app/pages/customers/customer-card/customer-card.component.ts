@@ -18,7 +18,6 @@ export class CustomerCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
   }
 
   

@@ -1,0 +1,7 @@
+https://www.concretepage.com/ngrx/ngrx-store-example
+https://v8.ngrx.io/guide/store
+https://v10.ngrx.io/guide/store/install
+https://angular.io/guide/http
+https://angular.io/guide/http#report-progress
+https://www.positronx.io/setup-new-angular-project-with-latest-angular-cli/
+https://angular.io/guide/developer-guide-overview
