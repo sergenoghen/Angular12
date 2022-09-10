@@ -1,6 +1,14 @@
 <div class="container">
-  <app-customer-card [customer]="setCustomer( (customer$ | async)! )! ">
+  <app-customer-card
+    [@shrinkOut]="'in'"
+    [customer]="setCustomer( (customer$ | async)! )! "
+  >
   </app-customer-card>
+
+  <a class="btn" href="/customers">Back</a>
 </div>
 
+
 <button mat-button (click)="openDialog()">Open dialog</button>
+<!-- 
+<app-hero-list-auto [heroes]="heroes" (remove)="onRemove($event)"></app-hero-list-auto> -->

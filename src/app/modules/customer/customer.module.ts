@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerCardComponent } from 'src/app/pages/customers/customer-card/customer-card.component';
 import { CustomerDialogComponent } from '../../pages/customers/customer-dialog/customer-dialog.component';
+import { HeroListAutoComponent } from '../../hero-list-auto/hero-list-auto.component';
 // import { YouTubePlayerModule } from '@angular/youtube-player';
 // import { TranslateModule } from '@ngx-translate/core';
 
@@ -22,7 +23,8 @@ import { CustomerDialogComponent } from '../../pages/customers/customer-dialog/c
     CustomersComponent,
     CustomerDetailsComponent,
     CustomerDialogComponent,
-    CustomerCardComponent
+    CustomerCardComponent,
+    HeroListAutoComponent
   ],
   imports: [
     CommonModule,

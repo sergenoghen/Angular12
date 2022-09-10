@@ -6,3 +6,5 @@ https://angular.io/guide/http#report-progress
 https://www.positronx.io/setup-new-angular-project-with-latest-angular-cli/
 https://angular.io/guide/developer-guide-overview
 https://angular.io/guide/service-worker-getting-started
+devTools : https://chrome.google.com/webstore/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh
+animations : https://angular.io/guide/transition-and-triggers

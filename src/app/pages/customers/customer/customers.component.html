@@ -4,12 +4,12 @@
     [customer] = 'data'
    >
    </app-customer-card>
-    <!-- <mat-progress-spinner *ngIf="(dataLoaded | async)"
+    <mat-spinner *ngIf="!(dataLoaded | async)"
       diameter="60"
-      class="spinner-border mx-auto d-flex mt-4 mb-4"
+      class="spinner-border mx-auto d-flex mt-4 mb-4  text-success"
       mode="indeterminate"
       [color]="'accent'"
-    ></mat-progress-spinner> -->
+    ></mat-spinner>
   </div> 
   <div class="container">
    <div class=""> Current page {{customersCurrentPage}} </div>
