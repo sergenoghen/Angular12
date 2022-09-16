@@ -1,8 +1,9 @@
 import { ActionReducerMap } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { customerDetailsReducer } from './customer.reducer';
+import { customerDetailsReducer, customerOrderReducer } from './customer.reducer';
 
 export const reducers: ActionReducerMap<AppState> = {
+    orderState : customerOrderReducer,
     customerState: customerDetailsReducer,
 };
  

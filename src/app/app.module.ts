@@ -11,7 +11,7 @@ import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { environment } from 'src/environments/environment';
-import { customerDetailsReducer } from './store/reducers/customer.reducer';
+import { customerDetailsReducer, customerOrderReducer } from './store/reducers/customer.reducer';
 import { CustomerEffects } from './store/effects/customer.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'; 
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -50,7 +50,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     CustomerModule,
     StoreModule.forRoot(
       {
-        customerDetails : customerDetailsReducer
+        customerDetails : customerDetailsReducer,
+        customerOrders : customerOrderReducer
       }, 
       {
         metaReducers,

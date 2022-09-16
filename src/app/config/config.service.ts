@@ -53,6 +53,15 @@ export class ConfigService {
         catchError(this.handleError) // then handle the error
       );
   }
+  
+  getCustomerOrders(id:any) {
+    
+    return this.http.get<any>(environment.apiUrl+"customers/"+id+"/orders")
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error
+      );
+  }
 
   getConfigResponse(): Observable<HttpResponse<Config>> {
     return this.http.get<Config>(

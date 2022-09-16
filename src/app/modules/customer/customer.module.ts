@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerCardComponent } from 'src/app/pages/customers/customer-card/customer-card.component';
+import { OrdersComponent } from 'src/app/pages/orders/orders.component';
 import { CustomerDialogComponent } from '../../pages/customers/customer-dialog/customer-dialog.component';
 import { HeroListAutoComponent } from '../../hero-list-auto/hero-list-auto.component';
 // import { YouTubePlayerModule } from '@angular/youtube-player';
@@ -24,7 +25,8 @@ import { HeroListAutoComponent } from '../../hero-list-auto/hero-list-auto.compo
     CustomerDetailsComponent,
     CustomerDialogComponent,
     CustomerCardComponent,
-    HeroListAutoComponent
+    HeroListAutoComponent,
+    OrdersComponent,
   ],
   imports: [
     CommonModule,

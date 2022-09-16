@@ -89,7 +89,7 @@ export class CustomersComponent implements OnInit {
     this.configService.getCustomersPerPage(this.customersCurrentPage).subscribe((result:any)=>{
       this.customers = result.data;
     })
-  return this.router.navigateByUrl('customers?page='+this.customersCurrentPage);
-}
+    return this.router.navigateByUrl('customers?page='+this.customersCurrentPage);
+  }
    
 }

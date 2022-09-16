@@ -16,4 +16,23 @@ export class CustomerService {
       map(response=>response)
     );
   }
+
+  getOrders(id:string){
+    return this.configService.getCustomerOrders(id).pipe(
+      map(response=>{
+        console.log(response);
+        
+       return  response;
+      })
+    );
+  }
+
+  tes(id:string){
+    this.configService.getCustomerOrders(id).subscribe(
+      data=>{
+        console.log(data);
+        
+      }
+    )
+  }
 }
