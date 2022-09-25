@@ -17,10 +17,10 @@ export class CustomerService {
     );
   }
 
-  getOrders(id:string){
-    return this.configService.getCustomerOrders(id).pipe(
+  getOrders(customerID:string){
+    return this.configService.getAllCustomerOrders(customerID).pipe(
       map(response=>{
-        console.log(response);
+       // console.log(response);
         
        return  response;
       })
@@ -28,7 +28,7 @@ export class CustomerService {
   }
 
   tes(id:string){
-    this.configService.getCustomerOrders(id).subscribe(
+    this.configService.getAllCustomerOrders(id).subscribe(
       data=>{
         console.log(data);
         

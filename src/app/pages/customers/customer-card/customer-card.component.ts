@@ -33,7 +33,7 @@ export class CustomerCardComponent implements OnInit {
   }
 
   details(id:any){
-    return this.router.navigateByUrl('customers/details/'+id);
+    return this.router.navigateByUrl('customer/details/'+id);
   }
 
   customerNotExist(data:Customer){

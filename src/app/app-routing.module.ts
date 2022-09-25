@@ -6,7 +6,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 const routes: Routes = [
   {
-    path: 'customers',
+    path: 'customer',
     loadChildren: () =>
       import('./modules/customer/customer.module').then((m) => m.CustomerModule),
   },

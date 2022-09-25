@@ -55,13 +55,14 @@ export class CustomerDetailsComponent implements OnInit {
   // get data$():Observable<Customer>{
   //   return of(this.customerData);
   // }
+ 
 
   close(id:any){
     $("#"+id).hide();
   }
 
   details(id:any){
-    return this.router.navigateByUrl('customers/details/'+id);
+    return this.router.navigateByUrl('customer/details/'+id);
   }
 
   
@@ -92,6 +93,5 @@ export class CustomerDetailsComponent implements OnInit {
     this.heroes = this.heroes.filter((hero:Hero) => hero.id !== id);
     return id;
   }
- 
 
 }

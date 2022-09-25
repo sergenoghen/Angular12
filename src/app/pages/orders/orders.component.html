@@ -1,14 +1,19 @@
-<p>orders works! </p>
 
-
-<p>  {{ (orders$ | async)?.length }} here</p>
-
-
-<!-- <div>
-    <p> {{ orders$ | async }} </p>
-</div>
-
-<ng-template  *ngFor="let order in (orders$ | async)"
-   >
-   <p> {{ order }}  23</p> 
-</ng-template> -->
+<h3>Customer {{customerID}} Order list</h3>
+<table  class="table"> 
+    <thead>
+        <th scope="col"> OrderID </th>
+        <th scope="col">CustomerID </th>
+        <th scope="col">EmployeeID </th>
+        <th scope="col">OrderDate</th>
+        <th scope="col">ShipperID </th>
+    </thead>
+    <tr  *ngFor="let order of (ordersArray$ | async) ">
+        <td> {{ order.OrderID }} </td>
+        <td> {{ order.CustomerID }}</td>
+        <td> {{ order.EmployeeID }}</td>
+        <td> {{ order.OrderDate }}</td>
+        <td> {{ order.ShipperID }}</td> 
+        <!-- <span> {{ getOrderDetails(order.OrderID)}} </span> -->
+    </tr>
+</table>

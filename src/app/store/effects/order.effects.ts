@@ -13,20 +13,20 @@ import { CustomerActions } from '..';
 import { OrderActions } from '..';
 
 @Injectable()
-export class CustomerEffects {
+export class OrderEffects {
   constructor(
     private actions$: Actions,
     private customerService: CustomerService,
     private router: Router
   ) {}
 
-  getOrder$ = createEffect(() =>
+  getOrders$ = createEffect(() =>
     this.actions$.pipe(
       ofType(OrderActions.getCustomerOrders),
       mergeMap((action) => {
         return this.customerService.getOrders(action.id).pipe(//fonction de la requete de l'API
           map((order) => {
-            console.log(order);
+            //console.log(order);
             return OrderActions.getCustomerOrdersSuccess({
               order,
             });

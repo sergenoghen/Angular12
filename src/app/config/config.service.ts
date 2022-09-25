@@ -38,7 +38,7 @@ export class ConfigService {
   }
 
   getCustomers() {
-    return this.http.get<any>(environment.apiUrl+"customers?page=1")
+    return this.http.get<any>(environment.apiUrl+"customer?page=1")
       .pipe(
         retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
@@ -47,16 +47,16 @@ export class ConfigService {
 
   getCustomerDetails(id:any=1) {
     
-    return this.http.get<any>(environment.apiUrl+"customers/details/"+id)
+    return this.http.get<any>(environment.apiUrl+"customer/details/"+id)
       .pipe(
         retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
       );
   }
   
-  getCustomerOrders(id:any) {
+  getAllCustomerOrders(id:any) {
     
-    return this.http.get<any>(environment.apiUrl+"customers/"+id+"/orders")
+    return this.http.get<any>(environment.apiUrl+"customer/"+id+"/orders")
       .pipe(
         retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error

@@ -13,6 +13,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { environment } from 'src/environments/environment';
 import { customerDetailsReducer, customerOrderReducer } from './store/reducers/customer.reducer';
 import { CustomerEffects } from './store/effects/customer.effects';
+import { OrderEffects } from './store/effects/order.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'; 
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -65,6 +66,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     ),
     EffectsModule.forRoot([
       CustomerEffects,
+      OrderEffects,
     ]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
