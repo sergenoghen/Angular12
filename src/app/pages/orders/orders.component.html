@@ -1,12 +1,12 @@
 
-<h3>Customer {{customerID}} Order list</h3>
+<h3>Customer {{customerID}} Orders' list</h3>
 <table  class="table"> 
     <thead>
         <th scope="col"> OrderID </th>
-        <th scope="col">CustomerID </th>
-        <th scope="col">EmployeeID </th>
-        <th scope="col">OrderDate</th>
-        <th scope="col">ShipperID </th>
+        <th scope="col"> CustomerID </th>
+        <th scope="col"> EmployeeID </th>
+        <th scope="col"> OrderDate </th>
+        <th scope="col"> ShipperID </th>
     </thead>
     <tr  *ngFor="let order of (ordersArray$ | async) ">
         <td> {{ order.OrderID }} </td>
@@ -15,5 +15,6 @@
         <td> {{ order.OrderDate }}</td>
         <td> {{ order.ShipperID }}</td> 
         <!-- <span> {{ getOrderDetails(order.OrderID)}} </span> -->
+        <td (click)="details(order.OrderID)"> <button class="btn">Details </button>  </td>
     </tr>
 </table>

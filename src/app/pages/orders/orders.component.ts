@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { map, Observable, of } from 'rxjs';
 import { ConfigService } from 'src/app/config/config.service';
 import { Order } from 'src/app/models/order';
+import { OrderDetails } from 'src/app/models/orderDetails';
 import { CustomerService } from 'src/app/services/customers/customer.service';
 import { OrderActions } from 'src/app/store';
 import { selectCustomerOrders } from 'src/app/store/selectors/order.selectors';
@@ -20,7 +21,7 @@ export class OrdersComponent implements OnInit {
 
   orders$: Observable<Order[]> = new Observable();
   customerID!:any;
-  orderDetails!:any[];
+  orderDetails!:Observable<OrderDetails>;
   constructor( 
     private customerService : CustomerService,
     private router : Router, 
@@ -32,7 +33,6 @@ export class OrdersComponent implements OnInit {
     
     this.orders$ = this.store.select(selectCustomerOrders);
     const id: string = this.route.snapshot.paramMap.get('id')!;
-    console.log(id);
     this.customerID = id;
     
     this.store.dispatch(OrderActions.getCustomerOrders({ id }));
@@ -49,7 +49,14 @@ export class OrdersComponent implements OnInit {
     )
   }
 
-  getOrderDetails(orderID:any){
+  //getOrderDetails()
+
+
+  details(orderID:any){
+   
+  }
+  
+  getOrderDetailss(orderID:any){
     let self = this;
     $.ajax({
         url: environment.apiUrl+"/customer/orders/"+orderID,
@@ -63,8 +70,5 @@ export class OrdersComponent implements OnInit {
       });
   }
 
-  get orderDetailsArray(){
-    return of(this.orderDetails);
-  }
 
 }

@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h3> Details for order number {{ orderId }} </h3>
+    <table class="table">
+        <thead>
+            <th>   ProductID  </th> 
+            <th>   Quantity   </th> 
+            <th>   OrderDetailID  </th> 
+        </thead>
+        <tr
+            *ngFor="let order of (orderDetails | async)"
+        >  
+            <td> <a  [href]="goToLink(order.ProductID )" > {{ order.ProductID }} </a></td> 
+            <td> {{ order.Quantity }} </td> 
+            <td> {{ order.OrderDetailID }} </td> 
+        </tr>
+
+    </table>
+</div>

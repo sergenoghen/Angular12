@@ -40,7 +40,8 @@
               "node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css"
             ],
             "scripts": [
-              "src/scripts.js" 
+              "src/scripts.js" ,
+              "node_modules/jquery/dist/jquery.min.js"
             ],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
@@ -121,7 +122,8 @@
               "node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css"
             ],
             "scripts": [
-              "src/scripts.js"
+              "src/scripts.js",
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           }
         }

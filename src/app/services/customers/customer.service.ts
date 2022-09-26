@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { data } from 'jquery';
 import { map, pipe } from 'rxjs';
 import { ConfigService } from 'src/app/config/config.service';
 
@@ -26,6 +27,16 @@ export class CustomerService {
       })
     );
   }
+
+
+  getOrderDetails(orderId:string){
+    return this.configService.getOrderDetails(orderId);
+  }
+
+  getProductDetails(productId:string){
+    return this.configService.getProductDetails(productId);
+  }
+  
 
   tes(id:string){
     this.configService.getAllCustomerOrders(id).subscribe(

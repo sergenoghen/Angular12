@@ -63,6 +63,18 @@ export class ConfigService {
       );
   }
 
+  async getOrderDetails(orderId:any) {
+    return this.http.get<any>(
+      environment.apiUrl+"customer/orders/"+orderId   
+      );
+  }
+
+  async getProductDetails(productId:any) {
+    return this.http.get<any>(
+      environment.apiUrl+"customer/products/"+productId  
+      );
+  }
+
   getConfigResponse(): Observable<HttpResponse<Config>> {
     return this.http.get<Config>(
       this.configUrl, { observe: 'response' });

@@ -18,6 +18,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { OrdersDetailsComponent } from './pages/orders/orders-details/orders-details.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 
 export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -42,6 +45,9 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     AppComponent,
     PageNotFoundComponent,
     LandingPageComponent,
+    NavbarComponent,
+    OrdersDetailsComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
