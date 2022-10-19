@@ -6,11 +6,13 @@ import { CustomerDetailsComponent } from 'src/app/pages/customers/customer-detai
 import { CustomersComponent } from 'src/app/pages/customers/customer/customers.component';
 import { OrdersDetailsComponent } from 'src/app/pages/orders/orders-details/orders-details.component';
 import { ProductsComponent } from 'src/app/pages/products/products.component';
+import { ProductsDetailsComponent } from 'src/app/pages/products/products-details/products-details.component';
 
 const routes: Routes = [
   { path: 'details/:id', component: CustomerDetailsComponent },
   { path: 'orders/details/:orderId', component: OrdersDetailsComponent }, 
   { path: 'orders/products/:productId', component: ProductsComponent }, 
+  { path: 'orders/products/details/:productId', component: ProductsDetailsComponent }, 
   {
     path: '',
     redirectTo: 'customers/all',

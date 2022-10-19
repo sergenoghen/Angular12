@@ -1,26 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ofEntityOp } from '@ngrx/data';
+import { Logger } from '@ngrx/data';
 import { map, Observable, of } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { CustomerService } from 'src/app/services/customers/customer.service';
-import { EmployeesService } from 'src/app/services/employees/employees.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  selector: 'app-products-details',
+  templateUrl: './products-details.component.html',
+  styleUrls: ['./products-details.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsDetailsComponent implements OnInit {
 
+  @Input() data! :Product|null ;
+  
   pDetails!:Product[];
   @Input() productId!:any;
   constructor(
-    
-    private route : ActivatedRoute, 
     private customerService : CustomerService,
-    private employeesService : EmployeesService
+    private route : ActivatedRoute, 
   ) {
+    
     const productID: any = this.route.snapshot.paramMap.get('productId')!;
     this.productId =  this.productId | productID;
    }
@@ -30,14 +30,11 @@ export class ProductsComponent implements OnInit {
     this.productDetails().then(pDetails=>{
       pDetails.subscribe(obser=>{
         this.pDetails = obser;
-        console.log(obser);
       })
     })
   }
   
   async productDetails(){
-    console.log(this.productId);
-    let self = this;
     return this.customerService.getProductDetails(this.productId).pipe(
       map(data=> data)
     )
@@ -46,6 +43,5 @@ export class ProductsComponent implements OnInit {
   get details(){    
     return of(this.pDetails);
   }
-
-
+  
 }

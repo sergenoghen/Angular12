@@ -3,18 +3,18 @@
 <table  class="table"> 
     <thead>
         <th scope="col"> OrderID </th>
-        <th scope="col"> CustomerID </th>
         <th scope="col"> EmployeeID </th>
         <th scope="col"> OrderDate </th>
         <th scope="col"> ShipperID </th>
     </thead>
-    <tr  *ngFor="let order of (ordersArray$ | async) ">
+    <tr  *ngFor="let order of (ordersObject$ | async) ">
         <td> {{ order.OrderID }} </td>
-        <td> {{ order.CustomerID }}</td>
-        <td> {{ order.EmployeeID }}</td>
+        <td> {{ order.EmployeeID }} 
+            <app-employees [data]="employee(order.EmployeeID) | async" ></app-employees> 
+        </td>
         <td> {{ order.OrderDate }}</td>
         <td> {{ order.ShipperID }}</td> 
         <!-- <span> {{ getOrderDetails(order.OrderID)}} </span> -->
-        <td (click)="details(order.OrderID)"> <button class="btn">Details </button>  </td>
+        <td> <button class="btn" (click)="details(order.OrderID)">Details </button> </td>
     </tr>
 </table>

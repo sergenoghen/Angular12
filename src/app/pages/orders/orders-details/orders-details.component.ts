@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ofEntityOp } from '@ngrx/data';
 import { map, Observable, of } from 'rxjs';
 import { OrderDetails } from 'src/app/models/orderDetails';
+import { Product } from 'src/app/models/product';
 import { CustomerService } from 'src/app/services/customers/customer.service';
 
 
@@ -15,6 +16,8 @@ export class OrdersDetailsComponent implements OnInit {
 
   orderDetails!:Observable <OrderDetails[]>;
   orderId!:any;
+  
+  productsDetails!:Observable <Product[]>;
 
   constructor(
     private route : ActivatedRoute, 
@@ -39,7 +42,16 @@ export class OrdersDetailsComponent implements OnInit {
   }
 
   goToLink(productId:any){
-    return 'customer/orders/products/'+productId;
+    return this.router.navigateByUrl('customer/orders/products/details/'+productId);
   }
+
+  
+  /*productDetails(productID:any):Observable<Product[]>{
+    let self = this;
+    return this.customerService.getProductDetails(productID).then(data=>{
+      this.productsDetails = data;
+      return data
+    })
+  }*/
 
 }

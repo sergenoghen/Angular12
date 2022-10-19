@@ -33,8 +33,8 @@ export class CustomerService {
     return this.configService.getOrderDetails(orderId);
   }
 
-  getProductDetails(productId:string){
-    return this.configService.getProductDetails(productId);
+  getProductDetails(productId:any){
+    return this.configService.getProductDetails(productId)
   }
   
 

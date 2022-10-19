@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -69,11 +70,15 @@ export class ConfigService {
       );
   }
 
-  async getProductDetails(productId:any) {
-    return this.http.get<any>(
+  getProductDetails(productId:string) {
+    return this.http.get<Product[]>(
       environment.apiUrl+"customer/products/"+productId  
+      ).pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error
       );
   }
+
 
   getConfigResponse(): Observable<HttpResponse<Config>> {
     return this.http.get<Config>(

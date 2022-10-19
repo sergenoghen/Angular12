@@ -21,6 +21,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { OrdersDetailsComponent } from './pages/orders/orders-details/orders-details.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { ProductsDetailsComponent } from './pages/products/products-details/products-details.component';
 
 
 export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -46,8 +47,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     PageNotFoundComponent,
     LandingPageComponent,
     NavbarComponent,
-    OrdersDetailsComponent,
-    ProductsComponent,
   ],
   imports: [
     BrowserModule,

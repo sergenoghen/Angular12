@@ -13,6 +13,7 @@ import { AnimationsService, ShrinkOutAnimation } from 'src/app/services/animatio
 //import * as LocalData from 'src/app/local-data/';
 import  {   HEROES  } from 'src/app/local-data/heroes';
 import { Hero } from 'src/app/models/hero';
+import { EmployeesService } from 'src/app/services/employees/employees.service';
 
 @Component({
   selector: 'app-customer-details',
@@ -35,6 +36,7 @@ export class CustomerDetailsComponent implements OnInit {
     public dialog: MatDialog,
     private store: Store,
     private animationsService : AnimationsService,
+    private employeesService : EmployeesService
   ) { 
     
     this.customer$ = this.store.select(selectCustomerDetails);

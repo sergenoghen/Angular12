@@ -1,0 +1,16 @@
+
+<div><br>
+    <div>
+        <img [src]="(getData | async)?.Photo" width="100" [alt]="(getData | async)?.LastName"> <br>
+        <span> {{ (getData | async)?.LastName }} &nbsp;  </span>
+        <div> {{ (getData | async)?.FirstName }} &nbsp;  </div>
+        <div> {{ (getData | async)?.BirthDate }} </div>
+        <div>
+            <span (click)="toggle()" >Notes</span>
+            <p class="toggle">
+                {{ (getData | async)?.Notes }} 
+            </p> 
+        </div>
+    </div>
+    
+</div>

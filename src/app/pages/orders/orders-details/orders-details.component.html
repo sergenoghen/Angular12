@@ -3,16 +3,22 @@
     <h3> Details for order number {{ orderId }} </h3>
     <table class="table">
         <thead>
-            <th>   ProductID  </th> 
-            <th>   Quantity   </th> 
             <th>   OrderDetailID  </th> 
+            <th>   Product Details  </th> 
+            <th>   Quantity   </th> 
+            <th> Action</th>
         </thead>
         <tr
             *ngFor="let order of (orderDetails | async)"
         >  
-            <td> <a  [href]="goToLink(order.ProductID )" > {{ order.ProductID }} </a></td> 
+            <td> <button class="btn primary" > {{ order.OrderDetailID }}</button> </td> 
+            <td> 
+                <app-products [productId]="order.ProductID" ></app-products>
+            </td> 
             <td> {{ order.Quantity }} </td> 
-            <td> {{ order.OrderDetailID }} </td> 
+            <td> 
+                <button (click)="goToLink(order.ProductID )">Details </button>
+            </td>
         </tr>
 
     </table>
