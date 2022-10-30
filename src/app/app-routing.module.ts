@@ -11,6 +11,10 @@ const routes: Routes = [
       import('./modules/customer/customer.module').then((m) => m.CustomerModule),
   },
   { path: 'customer/all', component: CustomersComponent, },
+  {
+    path: 'customers',
+    redirectTo: 'customer/all',
+  },
   { path: '', component: LandingPageComponent }, 
   { path: '404', component: PageNotFoundComponent }, 
   { path: '**', redirectTo: '/404' }, // Wildcard route for a 404 page

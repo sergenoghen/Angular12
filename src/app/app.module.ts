@@ -1,3 +1,4 @@
+
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,9 +20,17 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { OrdersDetailsComponent } from './pages/orders/orders-details/orders-details.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { ProductsDetailsComponent } from './pages/products/products-details/products-details.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  MatToolbarModule } from  '@angular/material/toolbar';
+import {  MatButtonModule } from  '@angular/material/button';
+import {  MatIconModule } from  '@angular/material/icon';
+import {  MatSidenavModule } from  '@angular/material/sidenav';
+import {  MatListModule } from  '@angular/material/list';
+import {  MatDatepickerModule } from  '@angular/material/datepicker';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { AppMatUiModule } from './modules/app-mat-ui.module';
 
 
 export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -54,6 +63,9 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     AppRoutingModule,
     HttpClientModule,
     CustomerModule,
+    AppMatUiModule,
+
+
     StoreModule.forRoot(
       {
         customerDetails : customerDetailsReducer,

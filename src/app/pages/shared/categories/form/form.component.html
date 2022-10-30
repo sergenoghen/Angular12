@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row m-1"> 
+        <form [formGroup]="profileForm" method="post" url="">
+            <div class="col">
+
+                <label for="first-name">First Name: </label>
+                <input id="first-name" type="text" formControlName="CategoryName">
+            
+                <label for="last-name">Last Name: </label>
+                <input id="last-name" type="text" formControlName="Description">
+
+                <p>Complete the form to enable button.</p>
+            </div>
+            <div class="col">
+                <button class="" type="submit" (click)="showFormData()" [disabled]="!profileForm.valid">Submit</button>
+                &NonBreakingSpace;
+                &NonBreakingSpace;
+                <button class="" type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+        
+      
+        <div> 
+            <div *ngIf="(postReturn | async) ">
+                <span class="alert success msg" >{{ (postReturn | async)?.message }}  </span>
+            </div>
+        </div>
+    
+</div>

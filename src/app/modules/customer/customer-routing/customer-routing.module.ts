@@ -8,6 +8,7 @@ import { OrdersDetailsComponent } from 'src/app/pages/orders/orders-details/orde
 import { ProductsComponent } from 'src/app/pages/products/products.component';
 import { ProductsDetailsComponent } from 'src/app/pages/products/products-details/products-details.component';
 import { CategoriesComponent } from 'src/app/pages/shared/categories/categories.component';
+import { FormComponent } from 'src/app/pages/shared/categories/form/form.component';
 
 const routes: Routes = [
   { path: 'details/:id', component: CustomerDetailsComponent },
@@ -15,11 +16,12 @@ const routes: Routes = [
   { path: 'orders/products/:productId', component: ProductsComponent }, 
   { path: 'orders/products/details/:productId', component: ProductsDetailsComponent }, 
   { path: 'orders/product/category/:categoryId', component: CategoriesComponent }, 
+  { path: 'category/create', component: FormComponent }, 
   {
     path: '',
     redirectTo: 'customer/all',
     pathMatch: 'full',
-  },
+  }, 
   
   { path: '**', redirectTo: '/customer/all' },  // Wildcard route for a page not found (no match customer wih id)
 ];

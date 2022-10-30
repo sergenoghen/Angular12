@@ -14,34 +14,27 @@ export class ProductsDetailsComponent implements OnInit {
 
   @Input() data! :Product|null ;
   
-  pDetails!:Product[];
   @Input() productId!:any;
   constructor(
     private customerService : CustomerService,
     private route : ActivatedRoute, 
   ) {
-    
     const productID: any = this.route.snapshot.paramMap.get('productId')!;
+    console.log(isNaN(productID));
+
     this.productId =  this.productId | productID;
    }
 
   ngOnInit(): void {
     
-    this.productDetails().then(pDetails=>{
-      pDetails.subscribe(obser=>{
-        this.pDetails = obser;
-      })
-    })
   }
   
-  async productDetails(){
-    return this.customerService.getProductDetails(this.productId).pipe(
-      map(data=> data)
-    )
-  }
-
-  get details(){    
-    return of(this.pDetails);
+  get goBack(){
+    this.route.url.subscribe(ob=>{
+      var last = ob[ob.length-1];
+      //console.log(last);
+    })
+    return this.route;
   }
   
 }

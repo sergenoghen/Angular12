@@ -21,6 +21,13 @@ import { ShippersComponent } from '../../pages/shared/shippers/shippers.componen
 import { SuppliersComponent } from '../../pages/shared/suppliers/suppliers.component';
 import { OrdersDetailsComponent } from 'src/app/pages/orders/orders-details/orders-details.component';
 import { ProductsComponent } from 'src/app/pages/products/products.component';
+import { FormComponent } from '../../pages/shared/categories/form/form.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { AppMatUiModule } from '../app-mat-ui.module';
 // import { YouTubePlayerModule } from '@angular/youtube-player';
 // import { TranslateModule } from '@ngx-translate/core';
 
@@ -41,16 +48,13 @@ import { ProductsComponent } from 'src/app/pages/products/products.component';
     CategoriesComponent,
     ShippersComponent,
     SuppliersComponent,
+    FormComponent,
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
     HttpClientModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatDialogModule,
-    MatIconModule,
-    MatButtonModule
+    AppMatUiModule,
   ],
 })
 export class CustomerModule { }

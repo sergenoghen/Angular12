@@ -22,6 +22,7 @@ export class ProductsComponent implements OnInit {
     private employeesService : EmployeesService
   ) {
     const productID: any = this.route.snapshot.paramMap.get('productId')!;
+    console.log(isNaN(productID));
     this.productId =  this.productId | productID;
    }
 
@@ -36,7 +37,6 @@ export class ProductsComponent implements OnInit {
   }
   
   async productDetails(){
-    console.log(this.productId);
     let self = this;
     return this.customerService.getProductDetails(this.productId).pipe(
       map(data=> data)

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { data } from 'jquery';
 import { map, pipe } from 'rxjs';
 import { ConfigService } from 'src/app/config/config.service';
+import { Category } from 'src/app/models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,6 @@ export class CustomerService {
     return this.configService.getAllCustomerOrders(customerID).pipe(
       map(response=>{
        // console.log(response);
-        
        return  response;
       })
     );
@@ -34,15 +34,21 @@ export class CustomerService {
   }
 
   getProductDetails(productId:any){
-    return this.configService.getProductDetails(productId)
+    return this.configService.getProductDetails(productId);
   }
   
+  getCategory(category:any){
+    return this.configService.getCategory(category);
+  }
+
+  createCategory(category:Category){
+    return this.configService.createCategory(category);
+  }
 
   tes(id:string){
     this.configService.getAllCustomerOrders(id).subscribe(
       data=>{
         console.log(data);
-        
       }
     )
   }

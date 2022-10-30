@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ConfigService, Config } from 'src/app/config/config.service';
+import { ConfigService, PostResult, Config } from 'src/app/config/config.service';
 import { Customer } from 'src/app/models/customer';
 import * as $ from "jquery";
 import { Router } from '@angular/router';
@@ -76,10 +76,11 @@ export class CustomersComponent implements OnInit {
     }
     this.customersCurrentPage = this.customersCurrentPage > this.lastPage ? this.lastPage : this.customersCurrentPage;
       this.configService.getCustomersPerPage(this.customersCurrentPage).subscribe((result:any)=>{
-        this.customers = [...this.customers, ...result.data];
+        //this.customers = [...this.customers, ...result.data]; //for view more
+        this.customers = [ ...result.data]; //for next page
         this.lastPage = result.last_page;
       })
-    return this.router.navigateByUrl('customers?page='+this.customersCurrentPage);
+    return this.router.navigateByUrl('customer?page='+this.customersCurrentPage);
   }
 
   
@@ -89,7 +90,7 @@ export class CustomersComponent implements OnInit {
     this.configService.getCustomersPerPage(this.customersCurrentPage).subscribe((result:any)=>{
       this.customers = result.data;
     })
-    return this.router.navigateByUrl('customers?page='+this.customersCurrentPage);
+    return this.router.navigateByUrl('customer?page='+this.customersCurrentPage);
   }
    
 }
