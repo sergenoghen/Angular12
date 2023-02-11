@@ -1,0 +1,24 @@
+  
+<!-- Cards with media area -->
+<div *ngFor="let p of (details | async)">
+
+    <mat-card class="example-card">
+        <mat-card-title-group>
+            <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            <div> ProductID : {{ p?.ProductID }} </div>
+            <mat-card-title>ProductName :  {{ p?.ProductName }}</mat-card-title>
+            <mat-card-subtitle>SupplierID : {{ p?.SupplierID }}  </mat-card-subtitle>
+        </mat-card-title-group>
+        <mat-card-content>
+            <p>Category : 
+                <app-categories [categoryId]="p?.CategoryID" ></app-categories> 
+            </p>
+            <p>
+                Price :   ${{ p?.Price }}
+            </p>
+            <p>
+                Unit : {{ p?.Unit }}
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>

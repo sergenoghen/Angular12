@@ -1,0 +1,22 @@
+  <div class="container">
+    <h2>Customers list : </h2> 
+  </div>
+  <div class="container customer-all" >
+    
+   <app-customer-card  *ngFor="let data of (customers$ | async)"
+    [customer] = 'data'
+   >
+   </app-customer-card>
+    <mat-spinner *ngIf="!(dataLoaded | async)"
+      diameter="60"
+      class="spinner-border mx-auto d-flex mt-4 mb-4  text-success"
+      mode="indeterminate"
+      [color]="'accent'"
+    ></mat-spinner>
+  </div> 
+  <div class="container">
+   <div class="btn" role="button" (click)="previewsPage" >previews page </div>
+   <span>Current page {{customersCurrentPage}} to  {{lastPage}}  </span>
+   <div class="btn" role="button" (click)="nextPage" >Next page </div>
+  </div>
+  <br>

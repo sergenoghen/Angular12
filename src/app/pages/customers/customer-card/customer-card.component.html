@@ -1,0 +1,37 @@
+<mat-card 
+    *ngIf="data?.CustomerID! > 0"
+    tabindex="0" 
+    class="card ui-widget-content" 
+    style="width: 18rem;  margin:10px;" 
+    [id]="data?.CustomerID" 
+    draggable="true"
+>
+    <!-- <img class="card-img-top" src="favicon.ico" alt="Card image cap"> -->
+    <div class="card-body">
+      <h5 class="card-title">{{ data?.CustomerName}}</h5>
+      <p class="card-text">{{data?.ContactName}}</p>
+      <p class="card-text">ID: {{data?.CustomerID}}</p>
+    </div>
+    <ul class="list-group list-group">
+      <li class="list-group-item">{{data?.City}}</li>
+      <li class="list-group-item">{{data?.Address}}</li>
+      <li class="list-group-item">{{data?.Country}}</li>
+    </ul>
+    <div class="card-body">
+      <button role="button" class="card-link" (click)="details(data?.CustomerID)">Details</button>
+      <button role="button" class="card-link close-btn"(click)="close(data?.CustomerID)">Close</button>
+    </div> 
+</mat-card>
+<br>
+<mat-spinner 
+*ngIf="!data?.CustomerID! "
+    diameter="50"
+    class="spinner-border mx-auto d-flex mt-4 mb-4  text-success"
+>
+</mat-spinner>
+<!-- <div class="alert alert-warning"
+    *ngIf="!dataFound"
+>
+    No data available
+</div> -->
+<div >  {{( customerNotExist(data) | async )}}</div>

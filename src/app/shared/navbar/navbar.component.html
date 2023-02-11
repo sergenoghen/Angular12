@@ -1,0 +1,101 @@
+<div class="container">
+       
+    <!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Logo brand</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="customer">Customers <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+             
+            </li>
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> 
+            <a href="customer">Right side </a>
+          </div>
+        </div>
+    </nav>
+    //////////////////////////////////   -->
+
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-icon-button [url]="myIcon" >
+          <a [routerLink]="'/'">
+            <div><img [src]="myIcon" width="100%" alt="" srcset=""> </div>
+          </a>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <br>
+        <mat-icon>menu</mat-icon>
+
+        <span class="menu-spacer"></span>
+        <div class="desktop-menu">
+          <ng-container *ngTemplateOutlet="headerLinksListItem" ></ng-container>
+        </div>
+      </mat-toolbar-row>
+    
+      <mat-toolbar-row>
+          <span style="font-size: 12px;">Simple Angular app with Laravel API</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav  class="" style="background-color: gray ;">
+        <mat-nav-list>
+          <ng-container *ngTemplateOutlet="headerLinksListItem" ></ng-container>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div style="height: 88vh;">
+    
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+    <ng-template #headerLinksListItem>
+     
+      <a mat-list-item [routerLink]="'/customer'"> Customers </a>
+      <a mat-list-item [routerLink]="'/customer/category/create'"> Create Category </a>
+      <a mat-list-item [routerLink]="'customer/orders/details/1'"> orders/details/1 </a>
+      <a mat-list-item [routerLink]="'customer/orders/products/1'"> products/1t </a>
+      <a mat-list-item  [routerLink]="'customer/orders/product/category/1'"> category/1 </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </ng-template>
+
+    
+    <ng-template #headerLinksList>
+     
+      <a mat-list-item [routerLink]="'/customer'"> Customers </a>
+      <a mat-list-item [routerLink]="'/customer/category/create'"> Create Category </a>
+      <a mat-list-item [routerLink]="'customer/orders/details/1'"> orders/details/1 </a>
+      <a mat-list-item [routerLink]="'customer/orders/products/1'"> products/1t </a>
+      <a mat-list-item  [routerLink]="'customer/orders/product/category/1'"> category/1 </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </ng-template>
+
+  </div>

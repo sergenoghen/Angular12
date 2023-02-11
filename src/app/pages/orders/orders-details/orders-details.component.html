@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h3> Details for order number {{ orderId }} </h3>
+    <table class="table">
+        <thead>
+            <th>   OrderDetailID  </th> 
+            <th>   Product Details  </th> 
+            <th>   Quantity   </th> 
+            <th> Action</th>
+        </thead>
+        <tr
+            *ngFor="let order of (orderDetails | async)"
+        >  
+            <td> <button class="btn primary" > {{ order.OrderDetailID }}</button> </td> 
+            <td> 
+                <app-products [productId]="order.ProductID" ></app-products>
+            </td> 
+            <td> {{ order.Quantity }} </td> 
+            <td> 
+                <button (click)="goToLink(order.ProductID )">Details </button>
+            </td>
+        </tr>
+
+    </table>
+</div>
